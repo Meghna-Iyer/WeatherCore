@@ -1,7 +1,7 @@
 {
   "name": "weathercore",
   "version": "1.0.0",
-  "description": "",
+  "description": "Core service for weather identification of areas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,17 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meghna-bits/WeatherCore.git"
+  },
+  "keywords": [
+    "Weather",
+    "service"
+  ],
+  "bugs": {
+    "url": "https://github.com/Meghna-bits/WeatherCore/issues"
+  },
+  "homepage": "https://github.com/Meghna-bits/WeatherCore#readme"
 }
