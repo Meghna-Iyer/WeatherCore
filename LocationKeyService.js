@@ -1,4 +1,4 @@
-const locationKey = {
+const locationKeyCityJson = {
     "Dhaka": {
         "key": "28143",
         "regionName": "Asia",
@@ -251,16 +251,33 @@ const locationKey = {
     }
 }
 
+function getLocationKeyCityMapping() {
+    let locationKeyCityMapping = new Map();
+    Object.keys(locationKeyCityJson).forEach(jsonKey => {  
+        locationKeyCityMapping.set(`${locationKeyCityJson[jsonKey].key}`, `${jsonKey}`)
+    })
+    return locationKeyCityMapping;
+}
 
 function getLocationKeyForCities(cityList) {
     let locationKeys = [];
     cityList.forEach(function(city){
-        locationKeys.push(locationKey[city].key)
+        locationKeys.push(locationKeyCityJson[city].key)
     })
     return locationKeys;
 }
 
+function getCitiesForLocationKeys(locationKeys) {
+    let cities = [];
+    let locationKeyCityMapping = getLocationKeyCityMapping();
+    locationKeys.forEach(function(locationKey){
+        cities.push(locationKeyCityMapping.get(locationKey))
+    })
+    return cities;
+}
+
 
 module.exports = {
-    getLocationKeyForCities: getLocationKeyForCities
+    getLocationKeyForCities: getLocationKeyForCities,
+    getCitiesForLocationKeys: getCitiesForLocationKeys
 }
