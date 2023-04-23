@@ -9,9 +9,9 @@ var jsonParser = bodyParser.json();
 const app = express()
 
 dotenv.config({ path: './.env'})
-const port = process.env.WEATHER_CORE_PORT,
-WEATHER_INTEGRATION_SERVICE_HOST = process.env.WEATHER_INTEGRATION_HOST,
-WEATHER_LOGIN_SERVICE_HOST = process.env.WEATHER_LOGIN_HOST;
+const port = process.env.WEATHER_CORE_PORT_NUMBER,
+WEATHER_INTEGRATION_SERVICE_HOST = process.env.WEATHER_INTEGRATION_HOST_URL,
+WEATHER_LOGIN_SERVICE_HOST = process.env.WEATHER_LOGIN_HOST_URL;
 
 function getForeCasePreferenceData(result) {
   let cities = locationKeyService.getCitiesForLocationKeys(result[0]['location_keys'])
