@@ -1,11 +1,14 @@
-const mysql = require('mysql')
+const mysql = require('mysql2')
+const dotenv = require('dotenv')
+
+dotenv.config({ path: './.env'})
 
 initNewConnection = () => {
     let connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'weather_service'
+        host: process.env.DATABASE_HOST,
+        user: process.env.DATABASE_USER,
+        password: process.env.DATABASE_PASSWORD,
+        database: process.env.DATABASE
     })
     connection.connect()
     return connection;
@@ -33,7 +36,8 @@ module.exports = {
             values: [userId]
         }, function (error, results) {
             if (error) return callback(error);
-            results[0]['location_keys'] = JSON.parse(results[0]['location_keys'])
+            if (results.length > 0)
+                results[0]['location_keys'] = JSON.parse(results[0]['location_keys'])
             return callback(null, results);
         });
     }
