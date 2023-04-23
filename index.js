@@ -91,6 +91,10 @@ app.get('/weather_forecast', jsonParser, (req,res) => {
   })
 })
 
+app.get('/', (req, res) => {
+  res.send('Weather Core microservice')
+})
+
 app.listen(port, () => {
   console.log(`Weather Core app listening on port ${port}`)
 })
