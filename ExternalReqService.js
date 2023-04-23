@@ -3,7 +3,6 @@ const request = require('request')
 
 module.exports = {
     makeExtRequest: (url, body, method, callback) => {
-        console.log(url)
         request ({
             method: method,
             uri: url,

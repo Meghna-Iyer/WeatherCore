@@ -22,8 +22,7 @@ function getForeCasePreferenceData(result) {
 }
 
 app.put('/forecast_preference', jsonParser, (req, res) =>{
-    //TODO: change to actual userId
-    let userId = 1,
+    let userId = req.body.user_id,
     cities = req.body.cities,
     locationKeys = locationKeyService.getLocationKeyForCities(cities);
     DBUtilService.upsertForecastPreference(userId,locationKeys, (err, result) => {
@@ -55,7 +54,7 @@ app.post('/register', jsonParser, (req,res) => {
     if(err){
       console.log(err)
       if(err.code = 'ECONNREFUSED') {
-        return res.send(424, {message: 'Err in login'});
+        return res.send(424, {message: 'Err in registration'});
       }
       return res.send(500, {message: 'Err in registration'});
     }
