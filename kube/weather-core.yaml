@@ -29,4 +29,9 @@ spec:
           image: meghnabits/weather-core:latest
           ports:
             - containerPort: 3005
+          env:
+            - name: WEATHER_INTEGRATION_HOST_URL
+              value: "${WEATHER_INTEGRATION_HOST_URL}"
+            - name: WEATHER_LOGIN_HOST_URL
+              value: "${WEATHER_LOGIN_HOST_URL}"
           imagePullPolicy: Always
