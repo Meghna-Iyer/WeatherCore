@@ -34,4 +34,6 @@ spec:
               value: "${WEATHER_INTEGRATION_HOST_URL}"
             - name: WEATHER_LOGIN_HOST_URL
               value: "${WEATHER_LOGIN_HOST_URL}"
+            - name: "DATABASE_PORT"
+              value: "${DATABASE_PORT}"
           imagePullPolicy: Always
