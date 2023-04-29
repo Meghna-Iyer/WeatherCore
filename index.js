@@ -78,7 +78,6 @@ app.post('/login', jsonParser, (req,res) => {
 
 app.get('/weather_forecast', jsonParser, (req,res) => {
   let getForeCastRequestBody = req.body;
-
   extReqService.makeExtRequest(WEATHER_INTEGRATION_SERVICE_HOST+'/get_forecast',getForeCastRequestBody,'GET', (err,body) =>{
     if(err){
       console.log(err)
